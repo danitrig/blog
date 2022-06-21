@@ -39,7 +39,10 @@
                                         <td>{{ $post->category->name }}</td>
                                         <td>{{ $post->user->name }}</td>
                                         <td>{{ $post->title }}</td>
-                                        <td>{{ $post->image }}</td>
+                                        <td>
+                                            <img src="{{ asset($post->image) }}" alt="{{ $post->title }}"
+                                                class="img-fluid img-thumbnail" width="100px">
+                                        </td>
                                         <td>{{ $post->created_at }}</td>
                                         <th>
                                             <button type="button" class="btn btn-warning" data-toggle="modal"

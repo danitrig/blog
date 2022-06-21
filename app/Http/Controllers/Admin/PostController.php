@@ -29,10 +29,17 @@ class PostController extends Controller
     {
         $newPost = new Post();
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'images/posts/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('image')->move($destinationPath, $filename);
+            $newPost->image = $destinationPath . $filename;
+        }
+
         $newPost->title = $request->title;
         $newPost->category_id = $request->category_id;
         $newPost->contenido = $request->contenido;
-        //$newPost->image = $request->image;
         $newPost->user_id = auth()->id();
 
         $newPost->save();
@@ -46,6 +53,14 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->category_id = $request->category_id;
         $post->contenido = $request->contenido;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'images/posts/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('image')->move($destinationPath, $filename);
+            $post->image = $destinationPath . $filename;
+        }
 
         $post->save();
 
