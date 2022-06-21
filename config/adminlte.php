@@ -225,6 +225,7 @@ return [
     */
 
     'menu' => [
+        /*   
         // Navbar items:
         [
             'type'         => 'navbar-search',
@@ -237,7 +238,7 @@ return [
         ],
 
         // Sidebar items:
-        [
+      [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
@@ -252,19 +253,19 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
+        ], */
+        ['header' => 'Blog'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Categorías',
+            'url'  => '/admin/categories',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Post',
+            'url'  => '/admin/posts',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        [
+        /* [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -317,7 +318,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*
