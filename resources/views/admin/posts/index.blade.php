@@ -10,7 +10,7 @@
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create-post">
             Excell
         </button>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-create-post">
+        <button type="button" class="btn btn-danger" data-toggle="modal" href="{{route('pdf.convert')}}">
             PDF
         </button>
     </h1>

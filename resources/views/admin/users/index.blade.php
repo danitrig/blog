@@ -4,6 +4,11 @@
 @section('content_header')
     <h1>
         Usuarios
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create-post">
+            Excell
+        </button>
+        <a class="btn btn-danger" href="/pdf/convert">PDF</a>
+
     </h1>
 @stop
 
