@@ -19,7 +19,9 @@ Route::get('/', function () {
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/post', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
+Route::get('/posts/{category}', [App\Http\Controllers\HomeController::class, 'postByCategory'])->name('posts.category');
+
+Route::get('/post/{postId}', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
 
 Route::get('/home', function () {
     return view('home');

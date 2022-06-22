@@ -256,19 +256,24 @@ return [
         ], */
         ['header' => 'Blog'],
         [
-            'text' => 'Posts',
-            'url'  => '/admin/posts',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Página Principal',
+            'url'  => '/',
+            'icon' => 'fas fa-solid fa-house-user',
         ],
         [
-            'text' => 'Categorías',
-            'url'  => '/admin/categories',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Posts',
+            'url'  => '/admin/posts',
+            'icon' => 'fas fa-solid fa-tags',
         ],
         [
             'text' => 'Usuarios',
             'url'  => '/admin/users',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Categorías',
+            'url'  => '/admin/categories',
+            'icon' => 'fas fa-solid fa-tags',
         ],
         /* [
             'text'    => 'multilevel',

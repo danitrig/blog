@@ -7,12 +7,6 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-post">
             Crear
         </button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create-post">
-            Excell
-        </button>
-        <button type="button" class="btn btn-danger" data-toggle="modal" href="{{route('pdf.convert')}}">
-            PDF
-        </button>
     </h1>
 @stop
 
