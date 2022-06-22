@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -41,6 +42,42 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function index()
+    {
+        $users = User::all();
+        return view('admin.users.index', ['users' => $users]);
+    }
+
+    public function update(Request $request, $userId)
+    {
+        $user = User::find($userId);
+
+        $user->name = $request->name;
+        $user->subname = $request->subname;
+        $user->password = Hash::make($request->password);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'images/users/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('image')->move($destinationPath, $filename);
+            $user->image = $destinationPath . $filename;
+        }
+
+        $user->save();
+
+        return redirect()->back();
+    }
+
+    public function delete(Request $request, $userId)
+    {
+        $user = User::find($userId);
+
+        $user->delete();
+
+        return redirect()->back();
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,7 +87,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'nick' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
+            'subname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -65,9 +104,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            'nick' => $data['nick'],
+            'subname' => $data['subname'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 }

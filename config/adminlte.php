@@ -256,14 +256,19 @@ return [
         ], */
         ['header' => 'Blog'],
         [
-            'text' => 'Categorías',
-            'url'  => '/admin/categories',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Post',
+            'text' => 'Posts',
             'url'  => '/admin/posts',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Categorías',
+            'url'  => '/admin/categories',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Usuarios',
+            'url'  => '/admin/users',
+            'icon' => 'fas fa-fw fa-user',
         ],
         /* [
             'text'    => 'multilevel',
@@ -373,6 +378,11 @@ return [
                     'type' => 'css',
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js',
                 ],
             ],
         ],

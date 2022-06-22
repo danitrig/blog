@@ -25,9 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $prueba = Category::find(2);
-        //dd($prueba->posts);
-        return view('posts');
+        $categories = Category::all();
+
+        return view('posts', [
+            'categories' => $categories,
+        ]);
     }
     public function post()
     {

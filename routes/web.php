@@ -35,4 +35,14 @@ Route::post('/admin/posts/store', [App\Http\Controllers\Admin\PostController::cl
 Route::post('/admin/posts/{postid}/update', [App\Http\Controllers\Admin\PostController::class, 'update'])->name('admin.posts.update');
 Route::delete('/admin/posts /{postid}/delete', [App\Http\Controllers\Admin\PostController::class, 'delete'])->name('admin.posts.delete');
 
+Route::get('/admin/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users.index');
+Route::post('/admin/users/{userid}/update', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
+Route::delete('/admin/users/{userid}/delete', [App\Http\Controllers\Admin\UserController::class, 'delete'])->name('admin.users.delete');
+
+//Para el PDF View
+Route::get('/pdf/view', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users.index');
+Route::get('/pdf/convert', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users.index');
+
+
+
 Auth::routes();
